@@ -48,14 +48,30 @@ function draw()
 {
     image(video, 0, 0, 600, 500);
 
+    furElise = song1.isPlaying();
+    moonlight = song2.isPlaying();
     fill("#FF0000");
     stroke("#FF0000");
 
     if(scoreLeftWrist > 0.2)
     {
-     song1 = "fur_elise.pm3";
      circle(leftWristX, leftWristY, 20);
-     song1.isPlaying();
-     document.getElementById("songname").innerHTML = "Song Name - Fur Elise";
+     song2.stop();
+      if(furElise == false)
+      {
+          song1.play();
+          document.getElementById("songname").innerHTML = "Song Name - Fur Elise";
+      }
+    }
+
+    if(scoreRightWrist > 0.2)
+    {
+     circle(rightWristX, rightWristY, 20);
+     song1.stop();
+      if(moonlight == false)
+      {
+          song2.play();
+          document.getElementById("songname").innerHTML = "Song Name - Moonlight Sonata";
+      }
     }
 }
